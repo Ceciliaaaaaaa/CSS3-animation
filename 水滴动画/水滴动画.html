@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水滴动画</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color:dodgerblue;
+            overflow: hidden;
+        }
+        div{
+            margin:200px auto;
+        }
+        .drop{
+            position:relative;
+            width:20px;
+            height:20px;
+            background-color:#fff;
+            border-radius:20px;
+            margin:0 auto;
+            top:-30px;
+            animation-name:dropping;
+            animation-timing-function:cubic-bezier(1,0,.91,.19);
+            animation-duration:2s;
+            animation-iteration-count: infinite;
+        }
+        .drop:before{
+            content:"";
+            position:absolute;
+            width:0;
+            height:0;
+            border-left:10px solid transparent;
+            border-right:10px solid transparent;
+            border-bottom:30px solid #fff;
+            top:-22px;
+        }
+        @keyframes dropping{
+            to{
+                top:190px;
+            }
+        }
+        .wave{
+            position:relative;
+            opacity:0;
+            top:0;
+            width:2px;
+            height:1px;
+            border:#fff 7px solid;
+            border-radius:300px/150px;      /*水平半径/垂直半径*/
+            animation-name:ripple;
+            animation-delay:2s;
+            animation-duration:2s;
+            animation-iteration-count: infinite;
+        }
+        .wave:after{
+            content:"";
+            position:absolute;
+            opacity:0;
+            top:-5px;
+            left:-5px;
+            width:2px;
+            height:1px;
+            border:#fff 5px solid;
+            border-radius:300px/150px;
+            animation-name:ripple2;
+            animation-duration:2s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes ripple{
+            from{
+                opacity:1;
+            }
+            to{
+                width:600px;
+                height:300px;
+                border-width:1px;
+                top:-100px;
+                opacity:0;
+            }
+        }
+        @keyframes ripple2{
+            0%{
+                opacity:1;
+            }
+            50%{
+                opacity:0;
+            }
+            100%{
+                width:200px;
+                height:100px;
+                border-width:1px;
+                top:100px;
+                left:200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="drop"></div>
+    <div class="wave"></div>
+</body>
+</html>

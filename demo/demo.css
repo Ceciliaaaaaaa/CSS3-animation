@@ -1,0 +1,30 @@
+*{
+	margin:0;
+	padding:0;
+}
+.demo{
+	height:100px;
+	width:100px;
+	margin-left:400px;
+	background-color:blue;
+	animation:wobble ease-in;
+	animation-duration:10s;
+}
+@keyframes wobble{
+	0%{
+		margin-left:400px;
+		background-color: green;
+	}
+	40%{
+		margin-left: 600px;
+		background-color: orange;
+	}
+	60%{
+		margin-left: 300px;
+		background-color: blue;
+	}
+	100%{
+		margin-left: 400px;
+		background-color: red;
+	}
+}
